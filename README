@@ -1,1 +1,23 @@
+Topic: Development of an Online Platform for Mechanical Designers and Manufacturers
+Objective:
+Our objective is to create a specialised online platform connecting mechanical designers and manufacturers. This platform simplifies the procurement process by enabling users to search for specific designs or raw materials. Users can access comprehensive information about companies, including their designs, equipment, past projects, and client partnerships. Additionally, users can leave reviews, enhancing transparency and trust within the community.
+Tech Stack:
+Frontend: HTML5, CSS3, JavaScript, React.js
+Backend: Node.js, Express.js, MongoDB
+Security: JSON Web Tokens (JWT) for authentication
+Additional Dependencies: cookie-parser, cors, dotenv, joi, jsonwebtoken, mongodb, mongoose, nodemon, react-router-dom
+Frontend Dependencies: axios, js-cookie, react, react-dom, react-hook-form, react-router-dom
+Description (Features in Detail):
+Easy Directory Access: Users can easily find suppliers, manufacturers, tools, and materials through a simple directory. They can filter listings based on location, specialisation, and ratings.
+
+
+Manufacturer Profiles: Manufacturers can create detailed profiles showcasing their capabilities, specialties, past projects, and partnerships. This boosts their visibility and credibility, attracting potential clients and driving business growth.
+
+
+Secure Sign-in and Login: Users can securely sign in or create an account to access personalised features such as saving favourite companies, managing reviews, and receiving tailored recommendations.
+ Efficient Search Functionality: Users can search for specific designs or raw materials, and relevant results will be displayed. Results include detailed information about companies offering the desired products or services.
+
+
+Review System: Users can leave reviews and ratings for companies based on their experiences. This feature enhances transparency and helps users make informed decisions.
+By incorporating these features and utilising a robust tech stack, the specialised online platform aims to revolutionise the automotive sector, driving collaboration, innovation, and economic growth.
 AdithiJhanavi Capstone
