@@ -1,0 +1,27 @@
+{
+  "name": "s49_adithi_capstone_manufacturing",
+  "version": "1.0.0",
+  "description": "Topic: Development of an Online Platform for Mechanical Designers and Manufacturers\r Objective:\r Our objective is to create a specialised online platform connecting mechanical designers and manufacturers. This platform simplifies the procurement process by enabling users to search for specific designs or raw materials. Users can access comprehensive information about companies, including their designs, equipment, past projects, and client partnerships. Additionally, users can leave reviews, enhancing transparency and trust within the community.\r Tech Stack:\r Frontend: HTML5, CSS3, JavaScript, React.js\r Backend: Node.js, Express.js, MongoDB\r Security: JSON Web Tokens (JWT) for authentication\r Additional Dependencies: cookie-parser, cors, dotenv, joi, jsonwebtoken, mongodb, mongoose, nodemon, react-router-dom\r Frontend Dependencies: axios, js-cookie, react, react-dom, react-hook-form, react-router-dom\r Description (Features in Detail):\r Easy Directory Access: Users can easily find suppliers, manufacturers, tools, and materials through a simple directory. They can filter listings based on location, specialisation, and ratings.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
