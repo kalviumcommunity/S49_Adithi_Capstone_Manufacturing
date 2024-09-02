@@ -1,8 +1,7 @@
-// src/components/navbar.js
 import React, { useState } from 'react';
 import './nav.css';
 import { Link } from 'react-router-dom';
-import { FaBars, FaNewspaper, FaBell, FaChartLine, FaInfoCircle } from 'react-icons/fa'; // Alternative icon used
+import { FaBars, FaNewspaper, FaBell, FaChartLine, FaInfoCircle } from 'react-icons/fa'; 
 import { AiOutlineClose } from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
