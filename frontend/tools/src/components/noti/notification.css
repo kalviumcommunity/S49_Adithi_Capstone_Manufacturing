@@ -51,12 +51,12 @@
   color: #fff;
 }
 .head {
-  margin-top: 20px; /* Space between the banner and the heading */
-  margin-bottom: 40px; /* Space between the heading and the notification boxes */
-  font-size: 3rem; /* Font size for bold and large heading */
-  font-weight: bold; /* Make the heading bold */
-  color: #333; /* Dark color for better readability */
-  text-align: center; /* Center the heading */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 3rem; 
+  font-weight: bold; 
+  color: #333;
+  text-align: center;
 }
 .heads{
   margin-top: 20px;
