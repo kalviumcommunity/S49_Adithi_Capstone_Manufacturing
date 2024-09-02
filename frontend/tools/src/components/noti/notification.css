@@ -1,0 +1,82 @@
+/* src/components/notification.css */
+
+.notification-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.notification-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create three columns */
+  gap: 20px; /* Space between columns and rows */
+  padding: 20px;
+}
+
+.notification-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.notification-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.notification-content {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.read-more-btn {
+  background-color: #041a2f;
+  color: rgb(252, 248, 248);
+  border: none;
+  border-radius: 33px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  background-color: #5e719b;
+  color: #fff;
+}
+.head {
+  margin-top: 20px; /* Space between the banner and the heading */
+  margin-bottom: 40px; /* Space between the heading and the notification boxes */
+  font-size: 3rem; /* Font size for bold and large heading */
+  font-weight: bold; /* Make the heading bold */
+  color: #333; /* Dark color for better readability */
+  text-align: center; /* Center the heading */
+}
+.heads{
+  margin-top: 20px;
+  margin-bottom: 40px; 
+  font-size: 20px;
+  text-align: center;
+}
+#heads{
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold; 
+}
+@media (max-width: 1200px) {
+  .notification-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .notification-container {
+    grid-template-columns: 1fr; /* 1 column for small screens */
+  }
+}
