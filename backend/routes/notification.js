@@ -45,7 +45,7 @@ router.delete('/:id', async (req, res) => {
     await Notification.deleteOne({ _id: req.params.id });
     res.json({ message: 'Notification deleted successfully' });
   } catch (err) {
-    console.error('Error deleting notification:', err); // Add detailed error logging
+    console.error('Error deleting notification:', err);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });

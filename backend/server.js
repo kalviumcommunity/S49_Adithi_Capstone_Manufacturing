@@ -20,7 +20,7 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173' // Adjust as needed
+  origin: 'http://localhost:5173' 
 }));
 
 // Define routes
@@ -28,7 +28,7 @@ app.use('/api/notifications', notificationRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/trends', trendsRoutes);
 app.use('/api/about', aboutRoutes);
-app.use('/api/events', eventRoutes); // Add this line
+app.use('/api/events', eventRoutes); 
 
 // Set up the server to listen on a specified port
 const PORT = process.env.PORT || 5000;
