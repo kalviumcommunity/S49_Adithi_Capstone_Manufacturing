@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button, Form, Input } from 'antd';
-import './trends.css'; // Add your CSS styles for Trends
-import TrendsImage from "../pics/trends.png"; // Update path as necessary
+import './trends.css'; 
+import TrendsImage from "../pics/trends.png"; 
 
 const Trends = () => {
   const [trends, setTrends] = useState([]);
@@ -114,9 +114,9 @@ const Trends = () => {
             <div className="trends-date">{new Date(trend.date).toLocaleDateString()}</div>
             <div className="trends-title">{trend.title}</div>
             <div className="trends-content">
-              {trend.content} {/* Show full content */}
+              {trend.content} 
               {expanded === trend._id && (
-                <div className="trends-read-more">{trend.readMore}</div> // Show additional content
+                <div className="trends-read-more">{trend.readMore}</div> 
               )}
             </div>
             <button className="read-more-btn" onClick={() => handleReadMore(trend._id)}>

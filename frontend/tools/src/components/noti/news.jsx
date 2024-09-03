@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button, Form, Input } from 'antd';
-import './news.css'; // Add your CSS styles for News
-import NewsBanner from "../pics/news.png"; // Update the image path if needed
+import './news.css';
+import NewsBanner from "../pics/news.png";
 
 const News = () => {
   const [news, setNews] = useState([]);

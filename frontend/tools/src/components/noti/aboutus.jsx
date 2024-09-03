@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './aboutus.css';
 import { Link } from 'react-router-dom';
-import AboutImage from '../pics/aboutus.png'; // Replace with your image path
+import AboutImage from '../pics/aboutus.png'; 
 
 const AboutUs = () => {
   const [aboutData, setAboutData] = useState(null);

@@ -1,4 +1,4 @@
-/* src/components/trends.css */
+
 
 .trends-banner {
     width: 100%;
@@ -8,8 +8,8 @@
   
   .trends-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Create three columns */
-    gap: 20px; /* Space between columns and rows */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
     padding: 20px;
     justify-items: center;
   }
@@ -104,13 +104,13 @@ margin-left: 1000px;
 
   @media (max-width: 1200px) {
     .trends-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+      grid-template-columns: repeat(2, 1fr); 
     }
   }
   
   @media (max-width: 768px) {
     .trends-container {
-      grid-template-columns: 1fr; /* 1 column for small screens */
+      grid-template-columns: 1fr; 
     }
   }
   
