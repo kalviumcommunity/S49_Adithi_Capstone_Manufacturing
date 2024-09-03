@@ -1,4 +1,4 @@
-/* Container for the entire About Us section */
+
 .about-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -7,8 +7,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Styling for the image at the top */
+ 
   .about-image {
     width: 100%;
     height: auto;
@@ -16,8 +15,6 @@
     margin-bottom: 30px;
     object-fit: cover;
   }
-  
-  /* Main header for the About Us section */
   .about-header {
     text-align: center;
     font-size: 36px;
@@ -26,7 +23,6 @@
     color: #333;
   }
   
-  /* Navigation link for going back home */
   .about-navigation {
     text-align: center;
     margin-bottom: 30px;
@@ -45,13 +41,11 @@
   }
   
   
-  /* Container for the content of the About Us section */
   .about-content {
     padding: 20px;
     line-height: 1.6;
   }
   
-  /* Title of the company */
   .about-title {
     font-size: 30px;
     font-weight: 700;
@@ -59,7 +53,6 @@
     color: #444;
   }
   
-  /* Mission and Vision statements */
   .about-mission, .about-vision {
     font-size: 20px;
     margin-bottom: 15px;
@@ -69,8 +62,6 @@
   .about-mission strong, .about-vision strong {
     color: #000;
   }
-  
-  /* Our Values and Our Team sections */
   .about-values, .about-team {
     list-style-type: none;
     padding: 0;
@@ -80,7 +71,6 @@
     margin-bottom: 40px;
   }
   
-  /* Individual value item and team member */
   .about-value-item, .about-team-member {
     margin-bottom: 20px;
     padding: 20px;
@@ -104,8 +94,6 @@
     font-size: 18px;
     color: #666;
   }
-  
-  /* Contact information section */
   .about-contact {
     font-size: 20px;
     margin-bottom: 15px;

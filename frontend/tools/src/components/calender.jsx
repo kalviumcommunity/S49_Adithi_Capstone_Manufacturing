@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Badge, Modal, Form, Input, Button } from 'antd';
 import dayjs from 'dayjs';
 import axios from 'axios';
-import 'antd/dist/reset.css'; // Import Ant Design CSS
+import 'antd/dist/reset.css'; 
 
 // Function to get the list of events for a given date
 const getListData = (value, events) => {
@@ -47,7 +47,7 @@ const CalendarWithEvents = () => {
         await axios.post('http://localhost:5000/api/events', {
           content: newEvent,
           date: selectedDate.toDate(),
-          type: 'success', // You can adjust this based on your needs
+          type: 'success', 
         });
       }
       setIsModalVisible(false);
@@ -98,7 +98,7 @@ const CalendarWithEvents = () => {
           <Calendar
             fullscreen={false}
             onSelect={handleDateClick}
-            style={{ fontSize: '16px' }} // Bigger font size for a larger calendar
+            style={{ fontSize: '16px' }} 
           />
         </div>
         <div className="events-section">
@@ -132,7 +132,7 @@ const CalendarWithEvents = () => {
       </div>
       <Modal
         title={`Add/Edit Event on ${selectedDate.format('YYYY-MM-DD')}`}
-        open={isModalVisible} // Use 'open' instead of 'visible'
+        open={isModalVisible} 
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
