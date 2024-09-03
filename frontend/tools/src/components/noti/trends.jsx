@@ -2,30 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button, Form, Input } from 'antd';
-import './notification.css';
-import Noti from "../pics/noti.png";
+import './trends.css'; // Add your CSS styles for Trends
+import TrendsImage from "../pics/trends.png"; // Update path as necessary
 
-const Notification = () => {
-  const [notifications, setNotifications] = useState([]);
+const Trends = () => {
+  const [trends, setTrends] = useState([]);
   const [expanded, setExpanded] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
-    const fetchNotifications = async () => {
+    const fetchTrends = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/notifications');
-        setNotifications(response.data);
+        const response = await axios.get('http://localhost:5000/api/trends');
+        setTrends(response.data);
       } catch (error) {
-        console.error('Error fetching notifications', error);
+        console.error('Error fetching trends', error);
       }
     };
 
-    fetchNotifications();
+    fetchTrends();
   }, []);
 
   const handleReadMore = (id) => {
     setExpanded(expanded === id ? null : id);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/trends/${id}`);
+      setTrends(trends.filter(trend => trend._id !== id));
+    } catch (error) {
+      console.error('There was an error deleting the trend!', error);
+    }
   };
 
   const showModal = () => {
@@ -38,42 +47,33 @@ const Notification = () => {
 
   const handleOk = () => {
     form.validateFields().then(values => {
-      axios.post('http://localhost:5000/api/notifications', values)
+      axios.post('http://localhost:5000/api/trends', values)
         .then(response => {
-          setNotifications([...notifications, response.data]);
+          setTrends([...trends, response.data]);
           setIsModalVisible(false);
           form.resetFields();
         })
         .catch(error => {
-          console.error('There was an error adding the notification!', error);
+          console.error('There was an error adding the trend!', error);
         });
     });
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/notifications/${id}`);
-      setNotifications(notifications.filter(notification => notification._id !== id));
-    } catch (error) {
-      console.error('There was an error deleting the notification!', error);
-    }
-  };
-
   return (
     <div>
-      <img src={Noti} alt="Notification Banner" className="notification-banner" />
-      <div className='head'>NOTIFICATION</div>
+      <img src={TrendsImage} alt="Trends Banner" className="trends-banner" />
+      <div className='head'>TRENDS</div>
       <div className='heads'>
         <Link to="/" id='heads'>Home</Link>
       </div>
 
-      <div className="add-notification-box" onClick={showModal}>
-        + Add Notification
+      <div className="add-trends-box" onClick={showModal}>
+        + Add Trends
       </div>
 
       <Modal
-        title="Add New Notification"
-        visible={isModalVisible}
+        title="Add New Trend"
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
@@ -108,21 +108,21 @@ const Notification = () => {
         </Form>
       </Modal>
 
-      <div className="notification-container">
-        {notifications.map(notification => (
-          <div key={notification._id} className="notification-box">
-            <div className="notification-date">{new Date(notification.date).toLocaleDateString()}</div>
-            <div className="notification-title">{notification.title}</div>
-            <div className="notification-content">
-              {notification.content}
-              {expanded === notification._id && (
-                <div className="notification-read-more">{notification.readMore}</div>
+      <div className="trends-container">
+        {trends.map(trend => (
+          <div key={trend._id} className="trends-box">
+            <div className="trends-date">{new Date(trend.date).toLocaleDateString()}</div>
+            <div className="trends-title">{trend.title}</div>
+            <div className="trends-content">
+              {trend.content} {/* Show full content */}
+              {expanded === trend._id && (
+                <div className="trends-read-more">{trend.readMore}</div> // Show additional content
               )}
             </div>
-            <button className="read-more-btn" onClick={() => handleReadMore(notification._id)}>
-              {expanded === notification._id ? 'Read Less' : 'Read More'}
+            <button className="read-more-btn" onClick={() => handleReadMore(trend._id)}>
+              {expanded === trend._id ? 'Read Less' : 'Read More'}
             </button>
-            <button className="delete-btn" onClick={() => handleDelete(notification._id)}>
+            <button className="delete-btn" onClick={() => handleDelete(trend._id)}>
               Delete
             </button>
           </div>
@@ -132,4 +132,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default Trends;

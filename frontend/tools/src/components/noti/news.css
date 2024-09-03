@@ -1,0 +1,115 @@
+/* src/components/news.css */
+
+.news-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create three columns */
+    gap: 20px; /* Space between columns and rows */
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  .news-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-date {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .news-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .news-content {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  .read-more-btn {
+    background-color: #041a2f;
+    color: rgb(252, 248, 248);
+    border: none;
+    border-radius: 33px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .read-more-btn:hover {
+    background-color: #5e719b;
+    color: #fff;
+  }
+  .head {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 3rem; 
+    font-weight: bold; 
+    color: #333;
+    text-align: center;
+  }
+  .heads{
+    margin-top: 20px;
+    margin-bottom: 40px; 
+    font-size: 20px;
+    text-align: center;
+  }
+  #heads{
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold; 
+  }
+  
+.add-news-box {
+  padding: 5px 10px;
+  background-color: #04172b;
+  color: white;
+  cursor: pointer;
+  border-radius: 33px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 150px;
+margin-left: 1000px;
+}
+
+.add-news-box:hover {
+  background-color: #0056b3;
+}
+.delete-btn {
+  background-color: #041a2f;
+  color: rgb(252, 248, 248);
+  border: none;
+  border-radius: 33px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 300px;
+}
+
+.delete-btn:hover {
+  background-color: #5e719b;
+  color: #fff;
+
+}
+  @media (max-width: 1200px) {
+    .news-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .news-container {
+      grid-template-columns: 1fr; /* 1 column for small screens */
+    }
+  }
+  

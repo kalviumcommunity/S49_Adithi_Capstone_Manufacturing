@@ -145,3 +145,71 @@ span {
   width: 30px;
   height: 30px;
 }
+/* Styling for the calendar and events container */
+.centered-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Container for calendar and events */
+.calendar-events-container {
+  display: flex;
+  justify-content: center; /* Center align horizontally */
+  align-items: flex-start; /* Align items to the start (top) vertically */
+  gap: 20px; /* Space between calendar and events section */
+  padding: 20px;
+}
+
+/* Calendar styling */
+.calendar-section {
+  flex: 3; /* Make the calendar section larger */
+  max-width: 600px; /* Set a max width for the calendar */
+  margin: 0; /* Reset default margin */
+}
+
+/* Events section styling */
+.events-section {
+  flex: 1; /* Make the events section smaller */
+  max-width: 400px; /* Set a max width for the events section */
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Reset default margin */
+}
+
+/* Events section heading styling */
+.events-section h2 {
+  margin-bottom: 20px;
+}
+
+/* List styling */
+.events-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events-section li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Badge styling */
+.ant-badge-status {
+  margin-right: 10px;
+}
+
+/* Modal styling */
+.ant-modal {
+  border-radius: 8px;
+}
+
+.ant-modal-header {
+  background: #f5f5f5;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid #d9d9d9;
+}

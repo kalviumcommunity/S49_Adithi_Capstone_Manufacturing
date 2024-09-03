@@ -1,9 +1,29 @@
-/* src/components/notification.css */
-
 .notification-banner {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.head {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 3rem; 
+  font-weight: bold; 
+  color: #333;
+  text-align: center;
+}
+
+.heads {
+  margin-top: 20px;
+  margin-bottom: 40px; 
+  font-size: 20px;
+  text-align: center;
+}
+
+#heads {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold; 
 }
 
 .notification-container {
@@ -38,7 +58,7 @@
 }
 
 .read-more-btn {
-  background-color: #041a2f;
+  background-color: #041a2f57;
   color: rgb(252, 248, 248);
   border: none;
   border-radius: 33px;
@@ -50,25 +70,38 @@
   background-color: #5e719b;
   color: #fff;
 }
-.head {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  font-size: 3rem; 
-  font-weight: bold; 
-  color: #333;
+
+.add-notification-box {
+  padding: 5px 10px;
+  background-color: #04172b;
+  color: white;
+  cursor: pointer;
+  border-radius: 33px;
   text-align: center;
+  margin-bottom: 20px;
+  width: 200px;
+margin-left: 1000px;
 }
-.heads{
-  margin-top: 20px;
-  margin-bottom: 40px; 
-  font-size: 20px;
-  text-align: center;
+
+.add-notification-box:hover {
+  background-color: #0056b3;
 }
-#heads{
-  text-decoration: none;
-  color: #000000;
-  font-weight: bold; 
+.delete-btn {
+  background-color: #041a2f;
+  color: rgb(252, 248, 248);
+  border: none;
+  border-radius: 33px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 300px;
 }
+
+.delete-btn:hover {
+  background-color: #5e719b;
+  color: #fff;
+
+}
+
 @media (max-width: 1200px) {
   .notification-container {
     grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */

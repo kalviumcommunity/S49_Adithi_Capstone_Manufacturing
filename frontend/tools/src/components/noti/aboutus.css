@@ -1,0 +1,121 @@
+/* Container for the entire About Us section */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the image at the top */
+  .about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    object-fit: cover;
+  }
+  
+  /* Main header for the About Us section */
+  .about-header {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Navigation link for going back home */
+  .about-navigation {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-home-link {
+    margin-top: 20px;
+    margin-bottom: 40px; 
+    font-size: 20px;
+    text-align: center;
+  }
+  #about-header{
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold; 
+  }
+  
+  
+  /* Container for the content of the About Us section */
+  .about-content {
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Title of the company */
+  .about-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #444;
+  }
+  
+  /* Mission and Vision statements */
+  .about-mission, .about-vision {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .about-mission strong, .about-vision strong {
+    color: #000;
+  }
+  
+  /* Our Values and Our Team sections */
+  .about-values, .about-team {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .about-values {
+    margin-bottom: 40px;
+  }
+  
+  /* Individual value item and team member */
+  .about-value-item, .about-team-member {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .about-value-item:hover, .about-team-member:hover {
+    transform: translateY(-5px);
+  }
+  
+  .about-value-item h3, .about-team-member h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .about-value-item p, .about-team-member p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Contact information section */
+  .about-contact {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .about-contact strong {
+    color: #000;
+  }
+  h2{
+    margin-left: 0px;
+    color: rgb(16, 16, 58);
+  }
