@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Badge, Modal, Form, Input, Button } from 'antd';
 import dayjs from 'dayjs';
+import axios from 'axios';
 import 'antd/dist/reset.css'; // Import Ant Design CSS
 
 // Function to get the list of events for a given date
@@ -15,34 +16,79 @@ const CalendarWithEvents = () => {
   const [events, setEvents] = useState([]);
   const [newEvent, setNewEvent] = useState('');
   const [selectedEventIndex, setSelectedEventIndex] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/events');
+        setEvents(response.data);
+      } catch (error) {
+        console.error('Error fetching events', error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
-    setSelectedEventIndex(null); // Reset the selected event index when date changes
+    setSelectedEventIndex(null);
+    setEditMode(false);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const handleOk = async () => {
+    try {
+      if (editMode) {
+        await axios.put(`http://localhost:5000/api/events/${selectedEventIndex}`, {
+          content: newEvent,
+        });
+      } else {
+        await axios.post('http://localhost:5000/api/events', {
+          content: newEvent,
+          date: selectedDate.toDate(),
+          type: 'success', // You can adjust this based on your needs
+        });
+      }
+      setIsModalVisible(false);
+      setNewEvent('');
+      setSelectedEventIndex(null);
+      setEditMode(false);
+      const response = await axios.get('http://localhost:5000/api/events');
+      setEvents(response.data);
+    } catch (error) {
+      console.error('Error saving event', error);
+    }
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setNewEvent('');
+    setEditMode(false);
   };
 
   const handleAddEvent = () => {
-    if (newEvent.trim()) {
-      setEvents([
-        ...events,
-        { type: 'success', content: newEvent, date: selectedDate.toDate() }
-      ]);
-      setNewEvent('');
-      handleOk(); // Close the modal after adding the event
-    }
+    setIsModalVisible(true);
+    setEditMode(false);
   };
 
-  const handleDeleteEvent = (index) => {
-    const updatedEvents = events.filter((_, i) => i !== index);
-    setEvents(updatedEvents);
+  const handleEditEvent = (index) => {
+    const event = events[index];
+    setNewEvent(event.content);
+    setSelectedEventIndex(event._id);
+    setEditMode(true);
+    setIsModalVisible(true);
+  };
+
+  const handleDeleteEvent = async (index) => {
+    try {
+      const event = events[index];
+      await axios.delete(`http://localhost:5000/api/events/${event._id}`);
+      const updatedEvents = events.filter((_, i) => i !== index);
+      setEvents(updatedEvents);
+    } catch (error) {
+      console.error('There was an error deleting the event!', error);
+    }
   };
 
   return (
@@ -69,25 +115,32 @@ const CalendarWithEvents = () => {
                 >
                   Cancel
                 </Button>
+                <Button
+                  type="link"
+                  onClick={() => handleEditEvent(index)}
+                  style={{ marginLeft: '10px' }}
+                >
+                  Edit
+                </Button>
               </li>
             ))}
           </ul>
-          <Button type="primary" onClick={() => setIsModalVisible(true)}>
+          <Button type="primary" onClick={handleAddEvent}>
             Add Event
           </Button>
         </div>
       </div>
       <Modal
-        title={`Add Event on ${selectedDate.format('YYYY-MM-DD')}`}
-        visible={isModalVisible}
+        title={`Add/Edit Event on ${selectedDate.format('YYYY-MM-DD')}`}
+        open={isModalVisible} // Use 'open' instead of 'visible'
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
           <Button key="cancel" onClick={handleCancel}>
-            Delete
+            Cancel
           </Button>,
-          <Button key="submit" type="primary" onClick={handleAddEvent}>
-            Add Event
+          <Button key="submit" type="primary" onClick={handleOk}>
+            {editMode ? 'Update Event' : 'Add Event'}
           </Button>,
         ]}
       >
