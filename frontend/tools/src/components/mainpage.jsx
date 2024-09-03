@@ -1,6 +1,7 @@
 // src/components/mainpage.js
 import React from 'react';
-import Navbar from './navbar'; // Import the Navbar component
+import Navbar from './navbar'; 
+import CalendarWithEvents from './calender';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const WelcomeComponent = () => {
         <Link to="/" className="site-title1">
         </Link>
       </div>
+       <CalendarWithEvents /> 
     </div>
   );
 };

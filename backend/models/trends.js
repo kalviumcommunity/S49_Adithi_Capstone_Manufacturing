@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const NotificationSchema = new Schema({
+const TrendsSchema = new Schema({
   date: {
     type: Date,
     required: true
   },
-  title: {
+  trendTitle: {
     type: String,
     required: true
   },
-  content: {
+  trendDescription: {
     type: String,
     required: true
-  },
-  readMore: {
-    type: String
   }
 });
 
-module.exports = mongoose.model('notifications', NotificationSchema);
+module.exports = mongoose.model('trends', TrendsSchema);

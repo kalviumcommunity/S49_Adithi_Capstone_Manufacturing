@@ -2,30 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button, Form, Input } from 'antd';
-import './notification.css';
-import Noti from "../pics/noti.png";
+import './news.css'; // Add your CSS styles for News
+import NewsBanner from "../pics/news.png"; // Update the image path if needed
 
-const Notification = () => {
-  const [notifications, setNotifications] = useState([]);
+const News = () => {
+  const [news, setNews] = useState([]);
   const [expanded, setExpanded] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
-    const fetchNotifications = async () => {
+    const fetchNews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/notifications');
-        setNotifications(response.data);
+        const response = await axios.get('http://localhost:5000/api/news');
+        setNews(response.data);
       } catch (error) {
-        console.error('Error fetching notifications', error);
+        console.error('Error fetching news', error);
       }
     };
 
-    fetchNotifications();
+    fetchNews();
   }, []);
 
   const handleReadMore = (id) => {
     setExpanded(expanded === id ? null : id);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/news/${id}`);
+      setNews(news.filter(newsItem => newsItem._id !== id));
+    } catch (error) {
+      console.error('There was an error deleting the news item!', error);
+    }
   };
 
   const showModal = () => {
@@ -38,42 +47,32 @@ const Notification = () => {
 
   const handleOk = () => {
     form.validateFields().then(values => {
-      axios.post('http://localhost:5000/api/notifications', values)
+      axios.post('http://localhost:5000/api/news', values)
         .then(response => {
-          setNotifications([...notifications, response.data]);
+          setNews([...news, response.data]);
           setIsModalVisible(false);
           form.resetFields();
         })
         .catch(error => {
-          console.error('There was an error adding the notification!', error);
+          console.error('There was an error adding the news item!', error);
         });
     });
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/notifications/${id}`);
-      setNotifications(notifications.filter(notification => notification._id !== id));
-    } catch (error) {
-      console.error('There was an error deleting the notification!', error);
-    }
-  };
-
   return (
     <div>
-      <img src={Noti} alt="Notification Banner" className="notification-banner" />
-      <div className='head'>NOTIFICATION</div>
+      <img src={NewsBanner} alt="News Banner" className="news-banner" />
+      <div className='head'>NEWS</div>
       <div className='heads'>
         <Link to="/" id='heads'>Home</Link>
       </div>
 
-      <div className="add-notification-box" onClick={showModal}>
-        + Add Notification
+      <div className="add-news-box" onClick={showModal}>
+        + Add News
       </div>
-
       <Modal
-        title="Add New Notification"
-        visible={isModalVisible}
+        title="Add New News"
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
@@ -108,21 +107,21 @@ const Notification = () => {
         </Form>
       </Modal>
 
-      <div className="notification-container">
-        {notifications.map(notification => (
-          <div key={notification._id} className="notification-box">
-            <div className="notification-date">{new Date(notification.date).toLocaleDateString()}</div>
-            <div className="notification-title">{notification.title}</div>
-            <div className="notification-content">
-              {notification.content}
-              {expanded === notification._id && (
-                <div className="notification-read-more">{notification.readMore}</div>
+      <div className="news-container">
+        {news.map(newsItem => (
+          <div key={newsItem._id} className="news-box">
+            <div className="news-date">{new Date(newsItem.date).toLocaleDateString()}</div>
+            <div className="news-title">{newsItem.title}</div>
+            <div className="news-content">
+              {newsItem.content} {/* Show full content */}
+              {expanded === newsItem._id && (
+                <div className="news-read-more">{newsItem.readMore}</div> // Show additional content
               )}
             </div>
-            <button className="read-more-btn" onClick={() => handleReadMore(notification._id)}>
-              {expanded === notification._id ? 'Read Less' : 'Read More'}
+            <button className="read-more-btn" onClick={() => handleReadMore(newsItem._id)}>
+              {expanded === newsItem._id ? 'Read Less' : 'Read More'}
             </button>
-            <button className="delete-btn" onClick={() => handleDelete(notification._id)}>
+            <button className="delete-btn" onClick={() => handleDelete(newsItem._id)}>
               Delete
             </button>
           </div>
@@ -132,4 +131,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default News;
