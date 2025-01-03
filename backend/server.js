@@ -20,8 +20,9 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173' 
+  origin: 'http://localhost:5174' // Update this to match your frontend's port
 }));
+
 
 // Define routes
 app.use('/api/notifications', notificationRoutes);
